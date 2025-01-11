@@ -1,11 +1,18 @@
 
 import logging
-logging.basicConfig(level=logging.DEBUG)
+
+
+
+logger = logging.getLogger(__name__)
+logging.basicConfig(filename='logs.txt', encoding='utf-8', level=logging.DEBUG, format='%(asctime)s %(message)s')
+
+
 
 def calculate(operation_type):
     operation_type=int(operation_type)
     allowed_operations=[1,2,3,4]
     checking=False
+
     for operation in allowed_operations:
         if operation==operation_type:
             checking=True
@@ -30,12 +37,6 @@ def calculate(operation_type):
     print(f"wynik to {c}")
     
 
-
-
-
-# if __name__ == "__main__":
-#     logging.debug("The program was called with this parameters %s" % sys.argv[1:])
-#     logging.debug("First parameter is %s" % sys.argv[1])
-    
-operation_type =input("Podaj działanie, posługując się odpowiednią liczbą: 1 Dodawanie, 2 Odejmowanie, 3 Mnożenie, 4 Dzielenie:")
+if __name__ == "__main__": 
+    operation_type =input("Podaj działanie, posługując się odpowiednią liczbą: 1 Dodawanie, 2 Odejmowanie, 3 Mnożenie, 4 Dzielenie:")
 calculate(operation_type)
